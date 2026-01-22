@@ -24,32 +24,34 @@ export default function SkillsSection() {
   const { t } = useTranslation();
 
   const skillCategories = [
-  {
-    title: t("categories.web"),
-    icon: <Layout size={20} color={theme.palette.primary.main} />,
-    // Explicitly cast the result to string[]
-    skills: (t("skills.web", { returnObjects: true }) as string[]) || [],
-    color: theme.palette.primary.main,
-  },
-  {
-    title: t("categories.engineering"),
-    icon: <Code2 size={20} color={theme.palette.secondary.main} />,
-    skills: (t("skills.engineering", { returnObjects: true }) as string[]) || [],
-    color: theme.palette.secondary.main,
-  },
-  {
-    title: t("categories.current"),
-    icon: <Sparkles size={20} color={theme.palette.success.main} />,
-    skills: (t("skills.current", { returnObjects: true }) as string[]) || [],
-    color: theme.palette.success.main,
-  },
-  {
-    title: t("categories.soft"),
-    icon: <Terminal size={20} color={theme.palette.info.main} />,
-    skills: (t("skills.soft", { returnObjects: true }) as string[]) || [],
-    color: theme.palette.info.main,
-  },
-];
+    {
+      title: t("categories.web"),
+      icon: <Layout size={20} color={theme.palette.primary.main} />,
+      skills: t("skills.web", { returnObjects: true }),
+      color: theme.palette.primary.main,
+    },
+    {
+      title: t("categories.engineering"),
+      icon: <Code2 size={20} color={theme.palette.secondary.main} />,
+      skills: t("skills.engineering", { returnObjects: true }),
+      color: theme.palette.secondary.main,
+    },
+    {
+      title: t("categories.current"),
+      icon: <Sparkles size={20} color={theme.palette.success.main} />,
+      skills: t("skills.current", { returnObjects: true }),
+      color: theme.palette.success.main,
+    },
+    {
+      title: t("categories.soft"),
+      icon: <Terminal size={20} color={theme.palette.info.main} />,
+      skills: t("skills.soft", { returnObjects: true }),
+      color: theme.palette.info.main,
+    },
+  ].map(cat => ({
+    ...cat,
+    skills: Array.isArray(cat.skills) ? cat.skills : []
+  }));
 
 
   return (
@@ -97,11 +99,7 @@ export default function SkillsSection() {
           <Grid container spacing={3} alignItems="stretch">
             {skillCategories.map((category, index) => (
               <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index} sx={{ display: "flex" }}>
-                <motion.div
-                  variants={fadeUp}
-                  transition={{ duration: 0.4 }}
-                  style={{ width: "100%" }}
-                >
+                <motion.div variants={fadeUp} transition={{ duration: 0.4 }} style={{ width: "100%" }}>
                   <Paper
                     elevation={0}
                     sx={{
@@ -142,15 +140,12 @@ export default function SkillsSection() {
                       </Box>
 
                       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                        {category.skills.map((skill) => (
+                        {(Array.isArray(category.skills) ? category.skills : []).map(skill => (
                           <Chip
                             key={skill}
                             label={skill}
                             sx={{
-                              bgcolor:
-                                theme.palette.mode === "light"
-                                  ? "#F3F4F6"
-                                  : "#1F2937",
+                              bgcolor: theme.palette.mode === "light" ? "#F3F4F6" : "#1F2937",
                               color: theme.palette.text.secondary,
                               fontWeight: 500,
                               fontSize: "0.75rem",
