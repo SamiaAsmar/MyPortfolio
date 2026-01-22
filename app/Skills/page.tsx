@@ -27,33 +27,25 @@ export default function SkillsSection() {
   {
     title: t("categories.web"),
     icon: <Layout size={20} color={theme.palette.primary.main} />,
-    skills: Array.isArray(t("skills.web", { returnObjects: true }))
-             ? t("skills.web", { returnObjects: true }) as string[]
-             : [],
+    skills: (t("skills.web", { returnObjects: true }) ?? []) as string[],
     color: theme.palette.primary.main,
   },
   {
     title: t("categories.engineering"),
     icon: <Code2 size={20} color={theme.palette.secondary.main} />,
-    skills: Array.isArray(t("skills.engineering", { returnObjects: true }))
-             ? t("skills.engineering", { returnObjects: true }) as string[]
-             : [],
+    skills: (t("skills.engineering", { returnObjects: true }) ?? []) as string[],
     color: theme.palette.secondary.main,
   },
   {
     title: t("categories.current"),
     icon: <Sparkles size={20} color={theme.palette.success.main} />,
-    skills: Array.isArray(t("skills.current", { returnObjects: true }))
-             ? t("skills.current", { returnObjects: true }) as string[]
-             : [],
+    skills: (t("skills.current", { returnObjects: true }) ?? []) as string[],
     color: theme.palette.success.main,
   },
   {
     title: t("categories.soft"),
     icon: <Terminal size={20} color={theme.palette.info.main} />,
-    skills: Array.isArray(t("skills.soft", { returnObjects: true }))
-             ? t("skills.soft", { returnObjects: true }) as string[]
-             : [],
+    skills: (t("skills.soft", { returnObjects: true }) ?? []) as string[],
     color: theme.palette.info.main,
   },
 ];
