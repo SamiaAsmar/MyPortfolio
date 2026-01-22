@@ -30,7 +30,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/Navigation": {
+    "/Skills": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -43,8 +43,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/Navigation",
-      "dataRoute": "/Navigation.rsc",
+      "srcRoute": "/Skills",
+      "dataRoute": "/Skills.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -78,7 +78,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/Skills": {
+    "/Navigation": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -91,8 +91,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/Skills",
-      "dataRoute": "/Skills.rsc",
+      "srcRoute": "/Navigation",
+      "dataRoute": "/Navigation.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -102,7 +102,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/About": {
+    "/Project": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -115,8 +115,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/About",
-      "dataRoute": "/About.rsc",
+      "srcRoute": "/Project",
+      "dataRoute": "/Project.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -150,7 +150,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/Project": {
+    "/About": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -163,8 +163,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/Project",
-      "dataRoute": "/Project.rsc",
+      "srcRoute": "/About",
+      "dataRoute": "/About.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -178,8 +178,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "32e5fe95d958ddad87886a9ccc0694e7",
-    "previewModeSigningKey": "dad7fdb0f1e76aa66651208c5ede250511e53ec5506e2c0dfdd16d5c1a00c23b",
-    "previewModeEncryptionKey": "43d8e388fda68a48d2e6e182c5df305aad096ea0676e7ce5b084df7655ecfd65"
+    "previewModeId": "b0c166924d2e5f61dec661f5191f164a",
+    "previewModeSigningKey": "28c012cfae04f755eada401beac23a0dcc21642e2f55713e8150fefd02f1adc9",
+    "previewModeEncryptionKey": "068525f92ae3e7ffb6a53d4be7b0379021690ba5b6477ab2ce0805360af7df6e"
   }
 }
