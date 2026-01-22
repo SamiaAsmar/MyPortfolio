@@ -1,8 +1,8 @@
 {
   "node_modules/i18next-http-backend/esm/request.js -> cross-fetch": {
-    "id": 5120,
+    "id": "node_modules/i18next-http-backend/esm/request.js -> cross-fetch",
     "files": [
-      "static/chunks/120.48ea8d909af0b73f.js"
+      "static/chunks/_app-pages-browser_node_modules_cross-fetch_dist_browser-ponyfill_js.js"
     ]
   }
 }
