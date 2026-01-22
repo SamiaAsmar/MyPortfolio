@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import { Box, Typography, Button, Container, Stack } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useTranslation } from "react-i18next";
@@ -28,6 +29,16 @@ const fadeRight = {
 export default function Page() {
   const { t } = useTranslation();
 
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  const scrollToProjects = () => {
+    projectsRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Box
       sx={{
@@ -36,10 +47,8 @@ export default function Page() {
         minHeight: "100vh",
       }}
     >
-      {/* Navigation */}
       <NavigationSection />
 
-      {/* Hero Section */}
       <Container maxWidth="lg">
         <motion.div
           initial="hidden"
@@ -59,7 +68,6 @@ export default function Page() {
               pt: { xs: 4, md: 0 },
             }}
           >
-            {/* Text Section */}
             <motion.div
               variants={fadeLeft}
               initial="hidden"
@@ -123,6 +131,7 @@ export default function Page() {
                   <Button
                     variant="contained"
                     endIcon={<ArrowForwardIcon />}
+                    onClick={scrollToProjects}
                     sx={{
                       bgcolor: (theme) => theme.palette.text.primary,
                       color: (theme) => theme.palette.background.default,
@@ -142,9 +151,9 @@ export default function Page() {
                     {t("Hero.ViewProjects")}
                   </Button>
 
-
                   <Button
                     variant="outlined"
+                    onClick={scrollToContact}
                     sx={{
                       px: 4,
                       py: 1.5,
@@ -165,7 +174,6 @@ export default function Page() {
               </Box>
             </motion.div>
 
-            {/* Illustration */}
             <motion.div
               variants={fadeRight}
               initial="hidden"
@@ -211,21 +219,48 @@ export default function Page() {
         </motion.div>
       </Container>
 
-      {/* Sections (Scroll Animations) */}
-      {[AboutSection, SkillsSection, ProjectsSection, ContactSection].map(
-        (Section, i) => (
-          <motion.div
-            key={i}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.5 }}
-          >
-            <Section />
-          </motion.div>
-        )
-      )}
+      {/* Sections */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        transition={{ duration: 0.5 }}
+      >
+        <AboutSection />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        transition={{ duration: 0.5 }}
+      >
+        <SkillsSection />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        transition={{ duration: 0.5 }}
+        ref={projectsRef}
+      >
+        <ProjectsSection />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        transition={{ duration: 0.5 }}
+        ref={contactRef}
+      >
+        <ContactSection />
+      </motion.div>
     </Box>
   );
 }
