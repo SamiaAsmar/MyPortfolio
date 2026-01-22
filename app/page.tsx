@@ -1,13 +1,13 @@
 "use client";
 
 import { Box, Typography, Button, Container, Stack } from "@mui/material";
-import NavigationMenu from "./Navigation/page";
+import NavigationMenu from "./navigation/page";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useTranslation } from "react-i18next";
-import AboutSection from "./About/page";
-import SkillsSection from "./Skills/page";
-import ProjectsSection from "./Project/page";
-import ContactSection from "./Contact/page";
+import AboutSection from "./about/page";
+import SkillsSection from "./skills/page";
+import ProjectsSection from "./project/page";
+import ContactSection from "./contact/page";
 import { motion } from "framer-motion";
 
 const fadeUp = {
