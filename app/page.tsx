@@ -1,346 +1,230 @@
-'use client'
+"use client";
 
-import * as React from 'react'
-import Link from 'next/link'
-import { Grid, Link as MuiLink, useTheme } from '@mui/material'
-import { Box, Button, Card, CardContent, Chip, Container, Divider, Stack, Tooltip, Typography } from '@mui/material'
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
-import OpenInNewIcon from '@mui/icons-material/OpenInNew'
-import { Github, Package, FormInput, Sun, Moon } from 'lucide-react'
-import { Icon } from '@iconify/react'
-import { useToggleMode } from '@/@core/hooks/useToggleMode'
-import { useTranslation } from 'react-i18next'
-import LanguageDropdown from '@/@core/components/LanguageDropdown'
-import GradientText from '@/components/ui/GradientText'
+import { Box, Typography, Button, Container, Stack } from "@mui/material";
+import NavigationMenu from "./Navigation/page";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useTranslation } from "react-i18next";
+import AboutSection from "./About/page";
+import SkillsSection from "./Skills/page";
+import ProjectsSection from "./Project/page";
+import ContactSection from "./Contact/page";
+import { motion } from "framer-motion";
 
-const Code = ({ children }: { children: React.ReactNode }) => (
-  <Box
-    component='code'
-    sx={{
-      display: 'inline-flex',
-      alignItems: 'center',
-      gap: 1,
-      px: 1.25,
-      py: 0.75,
-      borderRadius: 1,
-      bgcolor: 'rgba(255,255,255,0.08)',
-      border: '1px solid rgba(255,255,255,0.12)',
-      fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
-      fontSize: 14
-    }}
-  >
-    {children}
-  </Box>
-)
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
 
-function HeroSection({}: { copied: boolean; handleCopy: (text: string) => void }) {
-  const { mode, toggleMode } = useToggleMode()
-  const { t } = useTranslation()
+const fadeLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0 },
+};
 
-  return (
-    <Stack spacing={4} alignItems='center' textAlign='center' mb={{ xs: 6, md: 10 }}>
-      <Stack direction='row' spacing={1} alignItems='center'>
-        <GradientText textKey='HomePage.heroTitle' variant='h1' />
-      </Stack>
-      <Typography variant='h4' lineHeight={1.25} sx={{ maxWidth: 860, opacity: 0.9 }}>
-        {t('HomePage.heroDescription')}
-      </Typography>
-      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} useFlexGap flexWrap='wrap' justifyContent='center'>
-        {[
-          {
-            icon: 'simple-icons:mui',
-            translationKey: 'HomePage.chips.mui',
-            variant: 'filled',
-            iconStyle: { borderRadius: 4 }
-          },
-          {
-            icon: null,
-            lucideIcon: <FormInput size={18} />,
-            translationKey: 'HomePage.chips.reactHookForm',
-            variant: 'outlined'
-          },
-          {
-            icon: 'devicon:tailwindcss',
-            translationKey: 'HomePage.chips.tailwind',
-            variant: 'filled'
-          },
-          {
-            icon: 'devicon:typescript',
-            translationKey: 'HomePage.chips.typescript',
-            variant: 'outlined',
-            iconStyle: { borderRadius: 4 }
-          },
-          {
-            icon: 'devicon:nextjs',
-            translationKey: 'HomePage.chips.appRouter',
-            variant: 'outlined'
-          }
-        ].map((chip, index) => (
-          <Chip
-            key={index}
-            icon={
-              chip.lucideIcon ||
-              (chip.icon ? <Icon icon={chip.icon} width={18} height={18} style={chip.iconStyle || {}} /> : undefined)
-            }
-            label={t(chip.translationKey)}
-            color='primary'
-            variant={chip.variant as 'filled' | 'outlined'}
-          />
-        ))}
-      </Stack>
-      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} mt={1}>
-        <Button
-          size='large'
-          variant='contained'
-          onClick={toggleMode}
-          startIcon={mode === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-        >
-          {t('HomePage.toggleTheme')} ({mode === 'dark' ? t('common.dark') : t('common.light')})
-        </Button>
-        <Box>
-          <LanguageDropdown />
-        </Box>
-      </Stack>
-    </Stack>
-  )
-}
+const fadeRight = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0 },
+};
 
-function WhatsIncludedCard({ copied, handleCopy }: { copied: boolean; handleCopy: (text: string) => void }) {
-  const { t } = useTranslation()
-
-  return (
-    <Card
-      sx={{
-        backdropFilter: 'saturate(120%) blur(6px)',
-        background: 'rgba(255,255,255,0.04)',
-        border: '1px solid',
-        borderColor: 'rgba(255,255,255,0.08)',
-        height: '100%'
-      }}
-    >
-      <CardContent>
-        <Stack spacing={2}>
-          <Typography variant='h6' fontWeight={700}>
-            {t('HomePage.features.title')}
-          </Typography>
-
-          <Stack spacing={1.25} sx={{ opacity: 0.9 }}>
-            {/* Use static list since type mapping is causing issues */}
-            <Typography>• {t('HomePage.features.list.0')}</Typography>
-            <Typography>• {t('HomePage.features.list.1')}</Typography>
-            <Typography>• {t('HomePage.features.list.2')}</Typography>
-            <Typography>• {t('HomePage.features.list.3')}</Typography>
-          </Stack>
-
-          <Divider sx={{ my: 1 }} />
-
-          <Typography variant='subtitle2'>{t('HomePage.scaffold.title')}</Typography>
-
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} alignItems='center'>
-            <Code>npx shortcut-next@latest</Code>
-            <Tooltip title={copied ? t('HomePage.scaffold.copied') : t('HomePage.scaffold.copy')}>
-              <Button
-                variant='outlined'
-                size='small'
-                startIcon={<ContentCopyIcon fontSize='small' />}
-                onClick={() => handleCopy('npx shortcut-next@latest')}
-              >
-                {copied ? t('HomePage.scaffold.copied') : t('HomePage.scaffold.copy')}
-              </Button>
-            </Tooltip>
-          </Stack>
-        </Stack>
-      </CardContent>
-    </Card>
-  )
-}
-
-function TechLogosCard() {
-  const { t } = useTranslation()
-
-  return (
-    <Card
-      sx={{
-        height: '100%',
-        backdropFilter: 'saturate(120%) blur(6px)',
-        background: 'rgba(255,255,255,0.04)',
-        border: '1px solid',
-        borderColor: 'rgba(255,255,255,0.08)'
-      }}
-    >
-      <CardContent>
-        <Stack spacing={2}>
-          <Typography variant='h6' fontWeight={700}>
-            {t('HomePage.techStack.title')}
-          </Typography>
-
-          <Stack direction='row' spacing={2} alignItems='center' flexWrap='wrap' useFlexGap>
-            {/* Static tech stack icons */}
-            <Tooltip title='MUI' arrow placement='top'>
-              <span>
-                <Icon icon='simple-icons:mui' width={28} height={28} style={{ borderRadius: 4 }} />
-              </span>
-            </Tooltip>
-            <Tooltip title='Tailwind CSS' arrow placement='top'>
-              <span>
-                <Icon icon='devicon:tailwindcss' width={28} height={28} />
-              </span>
-            </Tooltip>
-            <Tooltip title='React' arrow placement='top'>
-              <span>
-                <Icon icon='devicon:react' width={28} height={28} />
-              </span>
-            </Tooltip>
-            <Tooltip title='Next.js' arrow placement='top'>
-              <span>
-                <Icon icon='devicon:nextjs' width={28} height={28} />
-              </span>
-            </Tooltip>
-            <Tooltip title='React Hook Form' arrow placement='top'>
-              <span>
-                <Icon icon='simple-icons:reacthookform' width={28} height={28} />
-              </span>
-            </Tooltip>
-            <Tooltip title='TypeScript' arrow placement='top'>
-              <span>
-                <Icon icon='devicon:typescript' width={28} height={28} style={{ borderRadius: 4 }} />
-              </span>
-            </Tooltip>
-          </Stack>
-
-          <Typography variant='body2' sx={{ opacity: 0.85 }}>
-            {t('HomePage.techStack.description')}
-          </Typography>
-
-          <Divider />
-
-          <Stack direction='row' spacing={2}>
-            <Button
-              variant='outlined'
-              size='small'
-              startIcon={<Github size={18} />}
-              endIcon={<OpenInNewIcon />}
-              component={Link}
-              href='https://github.com/Hadi87s/shortcut-next'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              GitHub
-            </Button>
-            <Button
-              variant='outlined'
-              size='small'
-              startIcon={<Package size={18} />}
-              endIcon={<OpenInNewIcon />}
-              component={Link}
-              href='https://www.npmjs.com/package/shortcut-next'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              npm
-            </Button>
-          </Stack>
-        </Stack>
-      </CardContent>
-    </Card>
-  )
-}
-
-function Footer() {
-  const { t } = useTranslation()
-
-  return (
-    <Stack alignItems='center' mt={8} sx={{ opacity: 0.65 }}>
-      <Typography variant='body2'>
-        <MuiLink
-          href='https://github.com/hadi87s/shortcut-next'
-          underline='none'
-          color='primary'
-          sx={{ fontWeight: 600 }}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          {t('HomePage.footer', { name: 'Hadi & Imad' })}
-        </MuiLink>
-      </Typography>
-    </Stack>
-  )
-}
 export default function Page() {
-  const [copied, setCopied] = React.useState(false)
-  const theme = useTheme()
-
-  const handleCopy = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 1200)
-    } catch {
-      // noop
-    }
-  }
+  const { t } = useTranslation();
 
   return (
     <Box
       sx={{
-        minHeight: '100dvh',
-        width: '100%',
-        position: 'relative',
-        overflow: 'hidden',
-        bgcolor: 'background.default',
-        color: 'text.primary'
+        bgcolor: (theme) => theme.palette.background.default,
+        color: (theme) => theme.palette.text.primary,
+        minHeight: "100vh",
       }}
     >
-      {theme.palette.mode === 'dark' ? (
-        <Box
-          aria-hidden
-          sx={{
-            position: 'absolute',
-            inset: 0,
-            zIndex: 0,
-            bgcolor: '#020617',
-            backgroundImage: `
-            linear-gradient(to right, rgba(71,85,105,0.3) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(71,85,105,0.3) 1px, transparent 1px),
-            radial-gradient(circle at 50% 50%, rgba(139,92,246,0.15) 0%, transparent 70%)
-          `,
-            backgroundSize: '32px 32px, 32px 32px, 100% 100%'
-          }}
-        />
-      ) : (
-        <Box
-          aria-hidden
-          sx={{
-            position: 'absolute',
-            inset: 0,
-            zIndex: 0,
-            backgroundImage: `
-            linear-gradient(to right, #d1d5db 1px, transparent 1px),
-            linear-gradient(to bottom, #d1d5db 1px, transparent 1px)
-          `,
-            backgroundSize: '32px 32px',
-            WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)',
-            maskImage: 'radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)'
-          }}
-        />
-      )}
+      {/* Navigation */}
+      <NavigationMenu />
 
-      <Container maxWidth='lg' sx={{ position: 'relative', zIndex: 1, py: { xs: 6, md: 10 } }}>
-        <Stack spacing={4}>
-          <HeroSection copied={copied} handleCopy={handleCopy} />
+      {/* Hero Section */}
+      <Container maxWidth="lg">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <Box
+            id="home"
+            sx={{
+              minHeight: "90dvh",
+              display: "flex",
+              flexDirection: { xs: "column", md: "row" },
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 8,
+              pt: { xs: 4, md: 0 },
+            }}
+          >
+            {/* Text Section */}
+            <motion.div
+              variants={fadeLeft}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              style={{ flex: 1 }}
+            >
+              <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
+                <Typography
+                  variant="overline"
+                  sx={{
+                    fontWeight: 700,
+                    color: (theme) => theme.palette.primary.main,
+                    letterSpacing: 1.5,
+                  }}
+                >
+                  {t("Hero.AvailableProjects")}
+                </Typography>
 
-          <Grid container spacing={4}>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <WhatsIncludedCard copied={copied} handleCopy={handleCopy} />
-            </Grid>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <TechLogosCard />
-            </Grid>
-          </Grid>
+                <Typography
+                  variant="h2"
+                  sx={{
+                    fontWeight: 800,
+                    mt: 1,
+                    mb: 2,
+                    fontSize: { xs: "2.5rem", md: "3.5rem" },
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {t("Hero.Greeting")}{" "}
+                  <Box
+                    component="span"
+                    sx={{
+                      background:
+                        "linear-gradient(90deg, #4F46E5 0%, #9333EA 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    {t("Hero.Name")}
+                  </Box>
+                </Typography>
 
-          <Footer />
-        </Stack>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: (theme) => theme.palette.text.secondary,
+                    fontWeight: 400,
+                    mb: 4,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {t("Hero.Description")}
+                </Typography>
+
+                <Stack
+                  direction={{ xs: "column", sm: "row" }}
+                  spacing={2}
+                  sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
+                >
+                  <Button
+                    variant="contained"
+                    endIcon={<ArrowForwardIcon />}
+                    sx={{
+                      bgcolor: (theme) => theme.palette.text.primary,
+                      color: (theme) => theme.palette.background.default,
+                      px: 4,
+                      py: 1.5,
+                      borderRadius: "12px",
+                      textTransform: "none",
+                      fontSize: "1rem",
+                      fontWeight: 600,
+                      "&:hover": {
+                        bgcolor: (theme) => theme.palette.text.secondary,
+                        transform: "translateY(-2px)",
+                      },
+                      transition: "all 0.2s",
+                    }}
+                  >
+                    {t("Hero.ViewProjects")}
+                  </Button>
+
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      px: 4,
+                      py: 1.5,
+                      borderRadius: "12px",
+                      textTransform: "none",
+                      fontSize: "1rem",
+                      fontWeight: 600,
+                      borderColor: (theme) => theme.palette.divider,
+                      color: (theme) => theme.palette.text.primary,
+                      "&:hover": {
+                        bgcolor: (theme) => theme.palette.action.hover,
+                      },
+                    }}
+                  >
+                    {t("Hero.ContactMe")}
+                  </Button>
+                </Stack>
+              </Box>
+            </motion.div>
+
+            {/* Illustration */}
+            <motion.div
+              variants={fadeRight}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              style={{ flex: 1 }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  position: "relative",
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    width: "300px",
+                    height: "300px",
+                    bgcolor: (theme) => theme.palette.action.hover,
+                    filter: "blur(80px)",
+                    borderRadius: "50%",
+                    zIndex: -1,
+                    opacity: 0.6,
+                  },
+                }}
+              >
+                <Box
+                  component="img"
+                  src="/undraw_web-development_f0tp.svg"
+                  alt={`${t("Hero.Name")} Illustration`}
+                  sx={{
+                    width: "100%",
+                    maxWidth: "500px",
+                    animation: "float 6s ease-in-out infinite",
+                    "@keyframes float": {
+                      "0%, 100%": { transform: "translateY(0)" },
+                      "50%": { transform: "translateY(-20px)" },
+                    },
+                  }}
+                />
+              </Box>
+            </motion.div>
+          </Box>
+        </motion.div>
       </Container>
+
+      {/* Sections (Scroll Animations) */}
+      {[AboutSection, SkillsSection, ProjectsSection, ContactSection].map(
+        (Section, i) => (
+          <motion.div
+            key={i}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            transition={{ duration: 0.5 }}
+          >
+            <Section />
+          </motion.div>
+        )
+      )}
     </Box>
-  )
+  );
 }

@@ -15,8 +15,8 @@ const cairo = Cairo({
   weight: ['300', '400', '500', '600', '700']
 })
 export const metadata: Metadata = {
-  title: 'Shortcut Nextjs Template',
-  description: 'Stop starting projects from scratch, start in the middle and save time!'
+  title: 'My portfolio',
+  description: 'A showcase of my projects, skills, and contact information.'
 }
 
 export default async function RootLayout({

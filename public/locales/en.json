@@ -1,51 +1,137 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "cta": "Get started",
-    "heroTitle": "Shortcut Next",
-    "heroDescription": "A modern Next.js boilerplate powered by MUI with room for React Query, React Hook Form, and optional Tailwind v4.",
-    "toggleTheme": "Toggle Theme",
-    "chips": {
-      "mui": "MUI",
-      "reactHookForm": "React Hook Form",
-      "tailwind": "Tailwind v4 (optional)",
-      "typescript": "TypeScript",
-      "appRouter": "App Router"
-    },
-    "features": {
-      "title": "What's included",
-      "list": [
-        "Next.js 15 (App Router) + TypeScript",
-        "MUI ThemeProvider + dark-ready UI",
-        "RHF starter form at /sample-form",
-        "Easy opt-in Tailwind v4 (via CLI preset)"
-      ]
-    },
-    "scaffold": {
-      "title": "Scaffold via npx",
-      "copy": "Copy",
-      "copied": "Copied!"
-    },
-    "techStack": {
-      "title": "Current Tech",
-      "description": "These are the core technologies powering this template. Hover over each logo to see its name.",
-      "items": [
-        { "name": "MUI", "icon": "simple-icons:mui" },
-        { "name": "Tailwind CSS", "icon": "devicon:tailwindcss" },
-        { "name": "React", "icon": "devicon:react" },
-        { "name": "Next.js", "icon": "devicon:nextjs" },
-        { "name": "React Hook Form", "icon": "simple-icons:reacthookform" },
-        { "name": "TypeScript", "icon": "devicon:typescript" }
-      ]
-    },
-    "footer": "Built with ❤️ by {{name}} using MUI. Ready for Tailwind v4, React Query, and more."
+  "Nav":{
+  "Home":"Home",
+  "About" : "About",
+  "Skills" : "Skills",
+  "Projects":"Projects",
+  "Contact":"Contact",
+  "toggleTheme":"toggleTheme"
   },
-  "common": {
-    "dark": "Dark",
-    "light": "Light",
-    "language": "Language",
-    "english": "English",
-    "arabic": "Arabic",
-    "loading": "Loading"
+  "common":{
+    "english":"English",
+    "arabic":"Arabic",
+    "dark":"dark",
+    "light":"light"
+  },
+  "Hero": {
+    "AvailableProjects": "Available for Projects",
+    "Greeting": "Hi there, I'm",
+    "Name": "Samia",
+    "Description": "Computer Engineering Student at NNU. Building digital experiences through Frontend Development.",
+    "ViewProjects": "View Projects",
+    "ContactMe": "Contact Me"
+  },
+  "About": {
+    "sectionTitle": "My Background",
+    "sectionSubtitle": "Bridging Design and Engineering",
+    "desc1": "I am a final-year Computer Engineering student at An-Najah National University. My journey started with a curiosity for how things work under the hood, which evolved into a passion for creating seamless, user-centric digital products.",
+    "desc2": "I don't just write code; I build systems. My engineering background allows me to approach Frontend development with a focus on optimization, scalability, and clean architecture.",
+    "coreStrengths": [
+      {
+        "title": "Modern Frontend",
+        "desc": "Learning and exploring React and Next.js to build modern web applications."
+      },
+      {
+        "title": "Computer Engineering",
+        "desc": "Applying hardware-level logic and efficiency to software solutions."
+      }
+    ]
+  },
+  "Skills": {
+    "titleOverline": "My Stack",
+    "titleMain": "Technologies I Use to Build",
+    "categories": {
+      "web": {
+        "title": "Web Foundations",
+        "skills": ["HTML5", "CSS3", "JavaScript (ES6+)", "Responsive Design", "MUI Basics"]
+      },
+      "engineering": {
+        "title": "Engineering Core",
+        "skills": ["C++", "Data Structures", "OOP", "Algorithm Analysis", "Logic Design"]
+      },
+      "learning": {
+        "title": "Current Focus (Learning)",
+        "skills": ["React.js Basics", "Next.js Learning", "Git/GitHub", "Tailwind CSS"]
+      },
+      "soft": {
+        "title": "Soft Skills",
+        "skills": ["Problem Solving", "Technical Writing", "Teamwork", "Fast Learning"]
+      }
+    }
+  },
+  "myStack": "My Stack",
+  "technologiesIUse": "Technologies I Use to <span>Build</span>",
+  "categories": {
+    "web": "Web Foundations",
+    "engineering": "Engineering Core",
+    "current": "Current Focus (Learning)",
+    "soft": "Soft Skills"
+  },
+  "skills": {
+    "web": ["HTML5", "CSS3", "JavaScript (ES6+)", "Responsive Design", "MUI Basics"],
+    "engineering": ["C++", "Data Structures", "OOP", "Algorithm Analysis", "Logic Design"],
+    "current": ["React.js Basics", "Next.js Learning", "Git/GitHub", "Tailwind CSS"],
+    "soft": ["Problem Solving", "Technical Writing", "Teamwork", "Fast Learning"]
+  },
+
+  "myWork": "My Work",
+  "featuredProjects": "Featured <span>Projects</span>",
+  "ViewCode":"View Code",
+  "projects": [
+    {
+      "title": "Fashion Shop Database Project",
+      "description": "Educational MySQL project simulating a fashion e-commerce backend with users, products, orders, and payments.",
+      "tech": ["MySQL", "SQL Queries", "Database Design"],
+      "githubLink": "https://github.com/SamiaAsmar/DataBase_project"
+    },
+    {
+      "title": "Student Collaboration Web",
+      "description": "Web app for students to share slides, tools, and questions, simplifying academic collaboration.",
+      "tech": ["Html", "CSS", "Java Script", "PHP"],
+      "githubLink": "https://github.com/SamiaAsmar/Web_Project"
+    },
+    {
+      "title": "HopeConnect API",
+      "description": "HopeConnect is a backend API connecting orphans in Gaza with donors, sponsors, volunteers, and orphanages.",
+      "tech": ["Java", "SpringBoot", "Postman"],
+      "githubLink": "https://github.com/SamiaAsmar/HopeConnect"
+    },
+    {
+      "title": "Simulated Annealing for Graph Coloring",
+      "description": "A GUI-based project using Simulated Annealing to solve the Graph Coloring Problem efficiently.",
+      "tech": ["Java (NetBeans)"],
+      "githubLink": "https://github.com/SamiaAsmar/Simulated-Annealing-for-Graph-Coloring"
+    },
+    {
+      "title": "Sweet Management System",
+      "description": "A software system to streamline operations and manage products, inventory, and sales for sweet shops.",
+      "tech": ["Java", "Cucumber", "TDD"],
+      "githubLink": "https://github.com/SweetOrganization2024/Sweet_mgt_System"
+    },
+    {
+      "title": "InvoLinker",
+      "description": "A web and mobile application to simplify and streamline invoice and purchase order management, reducing manual errors and improving workflow efficiency.",
+      "tech": ["React", "Next Js", "MUI"],
+      "githubLink": "#"
+    }
+  ],
+
+  "contact": {
+    "overline": "Get in Touch",
+    "title": "Let’s build something <span>together</span>",
+    "description": "I’m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
+
+    "emailLabel": "EMAIL ME",
+    "locationLabel": "LOCATION",
+    "locationValue": "Nablus, Palestine",
+
+    "readyTitle": "Ready to start?",
+    "readyDescription": "Click the button below to send me an email.",
+    "sendEmail": "Send me an Email",
+    "copyEmail": "Or manually copy:"
   }
+
+
 }
+
+

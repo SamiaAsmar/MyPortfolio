@@ -1,51 +1,133 @@
 {
-  "HomePage": {
-    "title": "مرحباً بالعالم!",
-    "cta": "ابدأ الآن",
-    "heroTitle": "نيكست شورتكت",
-    "heroDescription": "قالب حديث لنيكست جي إس مدعوم بواجهة مستخدم MUI مع مساحة لـ React Query و React Hook Form و Tailwind v4 اختيارياً.",
-    "toggleTheme": "تبديل السمة",
-    "chips": {
-      "mui": "MUI",
-      "reactHookForm": "React Hook Form",
-      "tailwind": "Tailwind v4 (اختياري)",
-      "typescript": "TypeScript",
-      "appRouter": "App Router"
-    },
-    "features": {
-      "title": "ماذا يتضمن",
-      "list": [
-        "Next.js 15 (App Router) + TypeScript",
-        "MUI ThemeProvider + واجهة مستخدم جاهزة للوضع الداكن",
-        "نموذج RHF في /sample-form",
-        "إضافة Tailwind v4 بسهولة (عبر واجهة سطر الأوامر)"
-      ]
-    },
-    "scaffold": {
-      "title": "البدء عبر npx",
-      "copy": "نسخ",
-      "copied": "تم النسخ!"
-    },
-    "techStack": {
-      "title": "التقنيات الحالية",
-      "description": "هذه هي التقنيات الأساسية التي تدعم هذا القالب. مرر المؤشر فوق كل شعار لمعرفة اسمه.",
-      "items": [
-        { "name": "MUI", "icon": "simple-icons:mui" },
-        { "name": "Tailwind CSS", "icon": "devicon:tailwindcss" },
-        { "name": "React", "icon": "devicon:react" },
-        { "name": "Next.js", "icon": "devicon:nextjs" },
-        { "name": "React Hook Form", "icon": "simple-icons:reacthookform" },
-        { "name": "TypeScript", "icon": "devicon:typescript" }
-      ]
-    },
-    "footer": "مبني بكل ❤️ بواسطة {{name}} باستخدام MUI. جاهز لـ Tailwind v4 و React Query والمزيد."
+  "Nav": {
+    "Home": "الرئيسية",
+    "About": "من أنا",
+    "Skills": "المهارات",
+    "Projects": "المشاريع",
+    "Contact": "تواصل معي"
   },
-  "common": {
-    "dark": "داكن",
-    "light": "فاتح",
-    "language": "اللغة",
-    "english": "الإنجليزية",
-    "arabic": "العربية",
-    "loading": "جار التحميل"
+  "common":{
+    "english":"English",
+    "arabic":"Arabic"
+  },
+  "Hero": {
+    "AvailableProjects": "متاحة للمشاريع",
+    "Greeting": "مرحباً، أنا",
+    "Name": "سامية",
+    "Description": "طالبة هندسة الحاسوب في جامعة النجاح الوطنية. أصنع تجارب رقمية من خلال تطوير الواجهة الأمامية.",
+    "ViewProjects": "عرض المشاريع",
+    "ContactMe": "تواصل معي"
+  },
+  "About": {
+    "sectionTitle": "نبذة عني",
+    "sectionSubtitle": "جسر بين التصميم والهندسة",
+    "desc1": "أنا طالبة في السنة النهائية في هندسة الحاسوب بجامعة النجاح الوطنية. بدأت رحلتي بالفضول لفهم كيفية عمل الأشياء من الداخل، وتطورت إلى شغف لإنشاء منتجات رقمية سلسة ومركزّة على المستخدم.",
+    "desc2": "أنا لا أكتب الأكواد فقط؛ بل أبني أنظمة. خلفيتي الهندسية تمكنني من التعامل مع تطوير الواجهات الأمامية مع التركيز على الأداء، القابلية للتوسع، والبنية النظيفة.",
+    "coreStrengths": [
+      {
+        "title": "الواجهات الحديثة",
+        "desc": "أتعلّم وأستكشف React و Next.js لبناء تطبيقات ويب حديثة."
+
+      },
+      {
+        "title": "هندسة الحاسوب",
+        "desc": "تطبيق المنطق على مستوى الأجهزة والكفاءة في الحلول البرمجية."
+      }
+    ]
+  },
+  "Skills": {
+    "titleOverline": "مجموعة المهارات",
+    "titleMain": "التقنيات التي أستخدمها للبناء",
+    "categories": {
+      "web": {
+        "title": "أساسيات الويب",
+        "skills": ["HTML5", "CSS3", "JavaScript (ES6+)", "تصميم متجاوب", "أساسيات MUI"]
+      },
+      "engineering": {
+        "title": "أساسيات الهندسة",
+        "skills": ["C++", "هياكل البيانات", "البرمجة الكائنية", "تحليل الخوارزميات", "تصميم المنطق"]
+      },
+      "learning": {
+        "title": "التركيز الحالي (التعلم)",
+        "skills": ["أساسيات React.js", "تعلم Next.js", "Git/GitHub", "Tailwind CSS"]
+      },
+      "soft": {
+        "title": "المهارات الشخصية",
+        "skills": ["حل المشكلات", "كتابة تقنية", "العمل الجماعي", "التعلم السريع"]
+      }
+    }
+  },
+  "myStack": "مجموعة المهارات",
+  "technologiesIUse": "التقنيات التي أستخدمها <span>للبناء</span>",
+  "categories": {
+    "web": "أساسيات الويب",
+    "engineering": "الأساسيات الهندسية",
+    "current": "التركيز الحالي (التعلم)",
+    "soft": "المهارات الشخصية"
+  },
+  "skills": {
+    "web": ["HTML5", "CSS3", "جافاسكربت (ES6+)", "تصميم متجاوب", "أساسيات MUI"],
+    "engineering": ["C++", "هياكل البيانات", "البرمجة كائنية التوجه", "تحليل الخوارزميات", "تصميم المنطق"],
+    "current": ["أساسيات React.js", "تعلم Next.js", "Git/GitHub", "Tailwind CSS"],
+    "soft": ["حل المشكلات", "الكتابة التقنية", "العمل الجماعي", "التعلم السريع"]
+  },
+
+  "myWork": "أعمالي",
+  "featuredProjects": "المشاريع <span>المميزة</span>",
+  "ViewCode": "عرض الكود",
+  "projects": [
+    {
+      "title": "Fashion Shop Database Project",
+      "description": "مشروع تعليمي في MySQL لمحاكاة خلفية متجر أزياء إلكتروني مع المستخدمين والمنتجات والطلبات والمدفوعات.",
+      "tech": ["MySQL", "SQL Queries", "تصميم قاعدة البيانات"],
+      "githubLink": "https://github.com/SamiaAsmar/DataBase_project"
+    },
+    {
+      "title": "Student Collaboration Web",
+      "description": "تطبيق ويب للطلاب لمشاركة الشرائح والأدوات والأسئلة، لتسهيل التعاون الأكاديمي.",
+      "tech": ["Html", "CSS", "جافاسكربت", "PHP"],
+      "githubLink": "https://github.com/SamiaAsmar/Web_Project"
+    },
+    {
+      "title": "HopeConnect API",
+      "description": "هوب كونكت هو API  يربط الأيتام في غزة بالمتبرعين، الكفلاء، المتطوعين ودور الأيتام.",
+      "tech": ["Java", "SpringBoot", "Postman"],
+      "githubLink": "https://github.com/SamiaAsmar/HopeConnect"
+    },
+    {
+      "title": "Simulated Annealing for Graph Coloring",
+      "description": "مشروع بواجهة GUI يستخدم خوارزمية Simulated Annealing لمحاكاة حل مشكلة تلوين الرسم البياني بكفاءة.",
+      "tech": ["Java (NetBeans)"],
+      "githubLink": "https://github.com/SamiaAsmar/Simulated-Annealing-for-Graph-Coloring"
+    },
+    {
+      "title": "Sweet Management System",
+      "description": "نظام برمجي لإدارة المنتجات والمخزون والمبيعات لمتاجر الحلويات بكفاءة.",
+      "tech": ["Java", "Cucumber", "TDD"],
+      "githubLink": "https://github.com/SweetOrganization2024/Sweet_mgt_System"
+    },
+    {
+      "title": "InvoLinker",
+      "description": "تطبيق ويب وجوال لتبسيط إدارة الفواتير وأوامر الشراء، وتقليل الأخطاء اليدوية وتحسين سير العمل.",
+      "tech": ["React", "Next Js", "MUI"],
+      "githubLink": "#"
+    }
+  ],
+
+  "contact": {
+    "overline": "تواصل معي",
+    "title": "لنَبْنِ شيئًا <span>معًا</span>",
+    "description": "أنا دائمًا منفتحة على مناقشة مشاريع جديدة، أفكار إبداعية، أو فرص لأكون جزءًا من رؤيتك.",
+
+    "emailLabel": "راسلني",
+    "locationLabel": "الموقع",
+    "locationValue": "نابلس، فلسطين",
+
+    "readyTitle": "جاهز للبدء؟",
+    "readyDescription": "اضغط على الزر أدناه لإرسال رسالة بريد إلكتروني.",
+    "sendEmail": "أرسل بريدًا إلكترونيًا",
+    "copyEmail": "أو انسخ البريد يدويًا:"
   }
+
+
 }
