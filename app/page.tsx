@@ -1,14 +1,14 @@
 "use client";
 
 import { Box, Typography, Button, Container, Stack } from "@mui/material";
-import NavigationMenu from "./navigation/page";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useTranslation } from "react-i18next";
-import AboutSection from "./about/page";
-import SkillsSection from "./skills/page";
-import ProjectsSection from "./project/page";
-import ContactSection from "./contact/page";
 import { motion } from "framer-motion";
+import NavigationSection from "./components/NavigationSection";
+import AboutSection from "./components/AboutSection";
+import SkillsSection from "./components/SkillsSection";
+import ProjectsSection from "./components/ProjectsSection";
+import ContactSection from "./components/ContactSection";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -37,7 +37,7 @@ export default function Page() {
       }}
     >
       {/* Navigation */}
-      <NavigationMenu />
+      <NavigationSection />
 
       {/* Hero Section */}
       <Container maxWidth="lg">
