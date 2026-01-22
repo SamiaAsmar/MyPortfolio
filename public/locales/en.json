@@ -49,7 +49,7 @@
         "title": "Engineering Core",
         "skills": ["C++", "Data Structures", "OOP", "Algorithm Analysis", "Logic Design"]
       },
-      "learning": {
+      "current": {
         "title": "Current Focus (Learning)",
         "skills": ["React.js Basics", "Next.js Learning", "Git/GitHub", "Tailwind CSS"]
       },
